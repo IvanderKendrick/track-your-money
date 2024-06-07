@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Track Your Money</title>
+    <meta
+      name="description"
+      content="particles.js is a lightweight JavaScript library for creating particles."
+    />
+    <meta name="author" content="Vincent Garreau" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Logo -->
+    <link href="img/tym-nobg.png" rel="icon" />
+
+    <!-- Icons Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/7e4642851c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Major+Mono+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "selector",
+        theme: {
+          extend: {
+            fontFamily: {
+              Montserrat: "Montserrat",
+              Roboto: "Roboto",
+              MajorMonoDisplay: "Major Mono Display",
+              Karla: "Karla",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Custom CSS for the mobile menu */
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .bg-blue {
+        background-color: rgb(0, 0, 0, 0.5);
+      }
+
+      /* Particles JS */
+      #particles-js {
+        background-color: transparent;
+      }
+
+      @layer utilities {
+        .bg-gradient-45 {
+          background-image: linear-gradient(45deg, var(--tw-gradient-stops));
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Header -->
+    <header
+      class="backdrop-blur-lg text-white p-4 fixed z-50 top-0 left-0 right-0"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <nav class="hidden md:flex space-x-4">
+          <div
+            class="text-xl font-bold font-MajorMonoDisplay hidden md:block mr-8"
+          >
+            TYM
+          </div>
+          <a href="#" class="font-semibold">Home</a>
+          <a href="#about" class="font-semibold">About</a>
+          <a href="#money" class="font-semibold">Money</a>
+          <a href="#contact" class="font-semibold">Contact</a>
+        </nav>
+        <div class="flex items-center justify-center gap-x-5">
+          <a href="login.php" class="font-semibold">Sign In</a>
+          <a
+            href="login.php"
+            class="hover:bg-white hover:text-black inline-block py-2 px-4 font-semibold rounded-md border border-white"
+            >Sign Up</a
+          >
+        </div>
+        <button id="menu-btn" class="block md:hidden focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div id="menu" class="mobile-menu p-4 md:hidden">
+        <a href="#" class="block py-2 px-4">Home</a>
+        <a href="#about" class="block py-2 px-4">About</a>
+        <a href="#money" class="block py-2 px-4">Money</a>
+        <a href="#contact" class="block py-2 px-4">Contact</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="relative text-white bg-gradient-45 from-blue-900 to-purple-400 h-screen flex items-center max-[600px]:h-fit max-[600px]:py-36"
+    >
+      <div id="particles-js" class="w-full h-full absolute z-10"></div>
+      <div class="container mx-auto flex justify-center px-4">
+        <!-- Main -->
+        <div
+          class="w-full md:w-3/4 flex gap-y-4 flex-col items-center md:text-left"
+        >
+          <h3 class="tracking-wide text-center text-xl md:text-2xl mb-2">
+            Your Personal Finance Manager
+          </h3>
+          <h1 class="text-6xl text-center font-bold font-MajorMonoDisplay mb-4">
+            Track Your Money
+          </h1>
+          <p
+            class="block text-center tracking-wide uppercase font-semibold text-lg md:text-xl"
+          >
+            Simplify Your Financial Management
+          </p>
+          <a
+            href="login.php"
+            class="uppercase bg-transparent backdrop-blur-sm py-3 px-8 text-center border z-20 font-bold border-white rounded-full mt-12 hover:bg-white hover:text-black"
+          >
+            start now
+          </a>
+          <div class="w-full flex flex-wrap justify-around mt-10 gap-8">
+            <a
+              href=""
+              class="flex flex-col items-center justify-center z-30 gap-y-3 border-white border-b px-4 pb-2"
+            >
+              <i class="fa-brands fa-github fa-3x"></i>
+              <p class="font-Karla">GitHub</p>
+            </a>
+            <a
+              href=""
+              class="flex flex-col items-center justify-center z-30 gap-y-3 border-white border-b px-4 pb-2"
+            >
+              <i class="fa-regular fa-comments fa-3x"></i>
+              <p class="font-Karla">LinkedIn</p>
+            </a>
+            <a
+              href=""
+              class="flex flex-col items-center justify-center z-30 gap-y-3 border-white border-b px-4 pb-2"
+            >
+              <i class="fa-solid fa-headset fa-3x"></i>
+              <p class="font-Karla">Support</p>
+            </a>
+            <a
+              href=""
+              class="flex flex-col items-center justify-center z-30 gap-y-3 border-white border-b px-4 pb-2"
+            >
+              <i class="fa-solid fa-mobile-screen-button fa-3x"></i>
+              <p class="font-Karla">WhatsApp</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="pb-16 pt-20">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <!-- Left Column -->
+          <div class="w-full md:w-1/2 md:pr-8 mb-8 md:mb-0">
+            <h2 class="text-4xl mb-4 text-gray-700 font-semibold font-Karla">
+              About Track Your Money
+            </h2>
+            <p class="text-lg leading-relaxed mb-4">
+              Track Your Money is a personal finance management web app designed
+              to help you take control of your finances. With our intuitive
+              interface, you can easily track your income, expenses, and savings
+              in one place.
+            </p>
+            <p class="text-lg leading-relaxed">
+              Our goal is to simplify financial management and provide you with
+              the tools you need to make informed financial decisions.
+            </p>
+
+            <div
+              class="my-6 flex gap-5 items-center flex-wrap border-b-2 pb-3 border-gray-700"
+            >
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-money-bill-trend-up fa-2x"></i>
+                <p
+                  class="py-2 px-4 bg-slate-300 rounded-md font-Montserrat font-semibold"
+                >
+                  Financial Freedom
+                </p>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-face-laugh-squint fa-2x"></i>
+                <p
+                  class="py-2 px-4 bg-slate-300 rounded-md font-Montserrat font-semibold"
+                >
+                  Happiness
+                </p>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-circle-check fa-2x"></i>
+                <p
+                  class="py-2 px-4 bg-slate-300 rounded-md font-Montserrat font-semibold"
+                >
+                  Goals
+                </p>
+              </div>
+            </div>
+
+            <p class="text-lg leading-relaxed font-thin">
+              Whether you're looking to create a budget, monitor your spending,
+              or plan for future expenses, Track Your Money offers a
+              comprehensive solution to meet your needs. Join us and start your
+              journey towards financial freedom today.
+            </p>
+            <a
+              href="login.php"
+              class="font-bold inline-block mt-2 hover:text-gray-700"
+            >
+              <p class="inline-block">Get Started Now!</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <!-- Right Column -->
+          <div class="w-full md:w-1/2 md:pl-8 flex justify-center">
+            <div class="relative w-3/4 h-3/4">
+              <img
+                src="img/laptop.jpg"
+                alt=""
+                class="relative z-20 w-full h-full object-cover rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next to About Section -->
+    <section class="py-24">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <!-- Left Column -->
+          <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
+            <h3 class="text-2xl text-gray-700 font-bold mb-4 font-Karla">
+              Track Your Income
+            </h3>
+            <img
+              src="img/chart1.png"
+              alt="chart"
+              class="mx-auto mb-4 w-48 h-48 object-cover"
+            />
+            <p
+              class="text-lg leading-relaxed text-left px-8 font-Roboto font-light"
+            >
+              <span class="font-Montserrat font-semibold tracking-tighter"
+                >Boost Your Financial Awareness!</span
+              >
+              <br />
+              Easily track every income stream with TYM. Get a clear picture of
+              all your earnings and see how money flows into your accounts. Take
+              control of your income now and manage it better!
+            </p>
+          </div>
+          <!-- Center Column -->
+          <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
+            <h3 class="text-2xl text-gray-700 font-bold mb-4 font-Karla">
+              Total of Your Wealth
+            </h3>
+            <img
+              src="img/chart2.png"
+              alt="chart"
+              class="mx-auto mb-4 w-48 h-48 object-cover"
+            />
+            <p
+              class="text-lg leading-relaxed text-left px-8 font-Roboto font-light"
+            >
+              <span class="font-Montserrat font-semibold tracking-tighter"
+                >Know Your Wealth with TYM!</span
+              >
+              <br />
+              Consolidate all your assets and liabilities in one place. TYM
+              calculates your total net worth, giving you a complete view of
+              your financial health. Achieve your financial goals with
+              confidence!
+            </p>
+          </div>
+          <!-- Right Column -->
+          <div class="w-full md:w-1/3 text-center">
+            <h3 class="text-2xl text-gray-700 font-bold mb-4 font-Karla">
+              Track Your Outcome
+            </h3>
+            <img
+              src="img/chart3.png"
+              alt="chart"
+              class="mx-auto mb-4 w-48 h-48 object-cover"
+            />
+            <p
+              class="text-lg leading-relaxed text-left px-8 font-Roboto font-light"
+            >
+              <span class="font-Montserrat font-semibold tracking-tighter"
+                >Take Charge of Your Spending with TYM!</span
+              >
+              <br />
+              Record every expense in a snap. TYM helps you monitor and analyze
+              all your expenditures so you can see where your money goes and
+              make smarter financial decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Keys Section -->
+    <section class="py-16 bg-cover bg-center" id="money">
+      <div class="container mx-auto px-4">
+        <h1
+          class="text-4xl text-gray-700 font-semibold text-center mb-20 font-Karla border-b-gray-800 border-b-2 pb-4"
+        >
+          <span class="font-MajorMonoDisplay text-8xl">3</span> Essential
+          Financial Goal Strategies
+        </h1>
+        <div class="flex flex-col space-y-12 items-center gap-y-5">
+          <!-- First Column -->
+          <div
+            class="relative p-2 shadow-lg rounded-3xl lg:w-2/3 bg-[url('img/bg1.png')] bg-cover bg-center"
+          >
+            <div class="bg-white p-6 rounded-2xl lg:pr-48">
+              <img
+                src="img/key1.png"
+                alt="Service One"
+                class="lg:absolute lg:top-20 lg:-right-16 lg:w-60 lg:h-w-60 rounded-md mb-5"
+              />
+              <h2 class="text-3xl font-medium mb-4 font-Roboto">
+                Creating and Following a Financial Plan
+              </h2>
+              <p
+                class="text-lg leading-relaxed mb-4 font-Montserrat font-light"
+              >
+                - Warren Buffett
+              </p>
+              <p class="text-lg leading-relaxed mb-4 font-Karla">
+                To achieve your financial targets, start by creating and
+                following a solid financial plan. Evaluate your income,
+                expenses, assets, and liabilities. Set SMART financial goals and
+                create a monthly budget for essentials, savings, and
+                investments. Adhere to this budget with discipline, and
+                regularly review and adjust your plan to stay on track.
+              </p>
+            </div>
+          </div>
+          <!-- Second Column -->
+          <div
+            class="relative p-2 shadow-lg rounded-3xl lg:w-2/3 bg-[url('img/bg1.png')] bg-cover bg-center"
+          >
+            <div class="bg-white p-6 rounded-2xl lg:pr-48">
+              <img
+                src="img/key2.png"
+                alt="Service Two"
+                class="lg:absolute lg:top-20 lg:-right-16 lg:w-60 lg:h-w-60 rounded-md mb-5"
+              />
+              <h2 class="text-3xl font-medium mb-4 font-Roboto">
+                Increasing Income
+              </h2>
+              <p
+                class="text-lg leading-relaxed mb-4 font-Montserrat font-light"
+              >
+                - Oprah Winfrey
+              </p>
+              <p class="text-lg leading-relaxed mb-4 font-Karla">
+                The second step is to increase your income. Enhance your
+                job-relevant skills through training or online courses, seek
+                higher-paying job opportunities or promotions, and start
+                additional income streams by leveraging your skills or hobbies,
+                such as freelance work or a small business. This will help you
+                reach your financial targets more quickly.
+              </p>
+            </div>
+          </div>
+          <!-- Third Column -->
+          <div
+            class="relative p-2 shadow-lg rounded-3xl lg:w-2/3 bg-[url('img/bg1.png')] bg-cover bg-center"
+          >
+            <div class="bg-white p-6 rounded-2xl lg:pr-48">
+              <img
+                src="img/key3.png"
+                alt="Service Three"
+                class="lg:absolute lg:top-20 lg:-right-16 lg:w-60 lg:h-w-60 rounded-md mb-5"
+              />
+              <h2 class="text-3xl font-medium mb-4 font-Roboto">
+                Managing and Optimizing Investments
+              </h2>
+              <p
+                class="text-lg leading-relaxed mb-4 font-Montserrat font-light"
+              >
+                - Ray Dalio
+              </p>
+              <p class="text-lg leading-relaxed mb-4 font-Karla">
+                The third step is to manage and optimize your investments. Learn
+                the basics of investing and understand different types of
+                investments, their risks, and returns. Diversify your portfolio
+                to reduce risk, invest regularly to mitigate market volatility,
+                and periodically review and rebalance your portfolio to align
+                with your goals and risk tolerance. This approach will help
+                optimize returns and strengthen your financial position.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 font-Karla border-t-black border-t-2 mt-5" id="contact">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col justify-between items-center">
+          <!-- Footer Logo and Description -->
+          <div class="mb-6">
+            <h2
+              class="text-2xl font-bold text-center mb-10 font-MajorMonoDisplay"
+            >
+              Track Your Money
+            </h2>
+            <p class="text-sm leading-relaxed tracking-wide mt-2 font-Roboto">
+              Your personal finance manager. Simplify your financial management
+              and start your journey towards financial freedom.
+            </p>
+          </div>
+
+          <!-- Footer Links -->
+          <div class="flex space-x-6 mb-6">
+            <a href="#" class="hover:text-gray-700">Home</a>
+            <a href="#about" class="hover:text-gray-700">About</a>
+            <a href="#money" class="hover:text-gray-700">Money</a>
+            <a href="#contact" class="hover:text-gray-700">Contact</a>
+          </div>
+
+          <!-- Footer Social Icons -->
+          <div class="flex space-x-6">
+            <a href="#" class="hover:text-gray-700">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="hover:text-gray-700">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="hover:text-gray-700">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="hover:text-gray-700">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        <div class="text-center text-sm text-gray-700 mt-8">
+          &copy; 2024 Track Your Money. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- scripts particles js -->
+    <script src="../particles.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- my js -->
+    <script src="script.js"></script>
+  </body>
+</html>
