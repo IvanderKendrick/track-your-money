@@ -58,4 +58,35 @@ function add($data, $username, $input){
     return mysqli_affected_rows($db);
 }
 
+// UPDATE
+function update($data){
+    global $db;
+
+    $id = $data["id"];
+    $type = $data["type"];
+    $name = htmlspecialchars($data["name"]);
+    $cost = htmlspecialchars($data["cost"]);
+    $month = htmlspecialchars($data["month"]);
+
+    // Query update data
+    $query = "UPDATE $type SET
+                name = '$name',
+                cost = '$cost',
+                month = '$month'
+            WHERE id = $id
+            ";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+// DELETE
+function delete($id, $type){
+    global $db;
+    mysqli_query($db, "DELETE FROM $type WHERE id = $id");
+
+    return mysqli_affected_rows($db);
+}
+
 ?>

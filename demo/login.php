@@ -78,6 +78,32 @@ if ( isset($_POST["register"]) ) {
     <title>Register & Login Page</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Major+Mono+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "selector",
+        theme: {
+          extend: {
+            fontFamily: {
+              Montserrat: "Montserrat",
+              Roboto: "Roboto",
+              MajorMonoDisplay: "Major Mono Display",
+              Karla: "Karla",
+            },
+          },
+        },
+      };
+    </script>
 
     <style>
       /* Particles JS */
@@ -87,7 +113,7 @@ if ( isset($_POST["register"]) ) {
     </style>
   </head>
 
-  <body class="bg-gray-100 h-screen flex items-center justify-center">
+  <body class="bg-gray-100 h-screen flex items-center justify-center font-Karla">
     <div id="particles-js" class="w-full h-full absolute -z-10"></div>
     <div class="bg-white shadow-md rounded-md p-8 w-96 relative">
       <!-- Switch tabs -->
